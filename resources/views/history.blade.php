@@ -39,7 +39,7 @@
                                 <option value="12">December</option>
                             </select>
                             <button type="submit"
-                                class="p-2 text-sm text-white hover:text-black bg-green-500 rounded-lg">
+                                class="p-2 px-8 text-sm text-white hover:text-black bg-green-500 rounded-lg">
                                 Export
                             </button>
                         </form>
@@ -109,7 +109,6 @@
         });
     </script>
     @include('sweetalert::alert')
-    @include('layout.script')
 
 </body>
 </html>

@@ -7,7 +7,7 @@
                     <img class="w-24 h-12 mx-auto" src="{{ asset('beil.svg') }}" alt="">
                 </a>
             </div>
-            <hr class="mx-5 shadow-2xl bg-transparent rounded-r-lg rounded-l-lg" />
+            <hr class="mx-5 shadow-2xl text-gray-100 rounded-r-lg rounded-l-lg" />
             <div>
                 <ul class="">
                     @if (auth()->user()->level == 'User')
@@ -50,7 +50,7 @@
                             </a>
                         </li>
                     @endif
-                   <li class="p-4 mx-2">
+                    <li class="p-4 mx-2">
                         <div class="flex space-x-4">
                             <div class="bg-red-600 p-2 rounded-lg">
                                 <i class="material-icons text-white">settings</i>
@@ -60,12 +60,12 @@
                             </div>
                         </div>
                     </li>
-                    <hr class="mx-5 shadow-2xl bg-transparent rounded-r-lg rounded-l-lg" />
+                    <hr class="mx-5 shadow-2xl text-gray-100 rounded-r-lg rounded-l-lg" />
                     @if (auth()->user()->level == 'User')
                         <li class="p-4 mx-2">
                             <div class="ml-16 md:ml-14">
                                 <a href="{{ route('chair') }}">
-                                    <h1 class="text-gray-500 hover:text-black text-base font-normal">Chairs</h1>
+                                    <h1 class="text-gray-500 hover:text-black text-base font-normal">Barcode</h1>
                                 </a>
                             </div>
                         </li>
@@ -118,6 +118,13 @@
                                 </a>
                             </div>
                         </li>
+                        <li class="p-4 mx-2">
+                            <div class="ml-16 md:ml-14">
+                                <a href="{{ route('withdraw') }}">
+                                    <h1 class="text-gray-500 hover:text-black text-base font-normal">Withdraw</h1>
+                                </a>
+                            </div>
+                        </li>
                     @endif
                     @if (auth()->user()->level == 'Admin')
                         <li class="p-4 mx-2">
@@ -142,7 +149,7 @@
                             </div>
                         </li>
                     @endif
-                    <hr class="mx-5 shadow-2xl bg-transparent rounded-r-lg rounded-l-lg" />
+                    <hr class="mx-5 shadow-2xl text-gray-100 rounded-r-lg rounded-l-lg" />
                     <li class="p-4 mx-2">
                         <a class="" href="">
                             <div class="flex space-x-4">

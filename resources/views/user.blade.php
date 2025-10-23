@@ -48,7 +48,7 @@
                                         <td class="">
                                             <div class="w-full">
                                                 <form
-                                                    class="p-2 text-white hover:text-black bg-red-500 rounded-lg text-center"
+                                                    class="p-2 px-4 text-white hover:text-black bg-red-500 rounded-lg text-center"
                                                     method="post" action="{{ route('deluser', ['id' => $user->id]) }}">
                                                     @csrf
                                                     @method('delete')
@@ -83,7 +83,6 @@
         });
     </script>
     @include('sweetalert::alert')
-    @include('layout.script')
 
 </body>
 </html>

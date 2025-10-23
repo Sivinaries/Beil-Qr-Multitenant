@@ -32,7 +32,5 @@
         </div>
       </div>
     </main>
-    @include('layout.script')
-
   </body>
 </html>

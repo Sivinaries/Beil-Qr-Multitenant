@@ -21,9 +21,8 @@
                 <div class="p-3">
                     <div class="flex justify-between">
                         <h1 class="font-extrabold text-3xl">Discounts</h1>
-                        <a class="p-2 bg-blue-500 rounded-lg text-white hover:text-black text-center"
-                            href="{{ route('adddiscount') }}">Add
-                            discount</a>
+                        <a class="p-2 px-8 bg-green-500 rounded-lg text-white hover:text-black text-center"
+                            href="{{ route('adddiscount') }}">+ Add</a>
                     </div>
                 </div>
                 <div class="p-2">
@@ -50,13 +49,13 @@
                                             <div class="w-full">
                                                 <a href="{{ route('editdiscount', ['id' => $item->id]) }}">
                                                     <h1
-                                                        class="p-2 text-white hover:text-black bg-blue-500 rounded-lg text-center">
+                                                        class="p-2 px-4 text-white hover:text-black bg-blue-500 rounded-lg text-center">
                                                         Edit</h1>
                                                 </a>
                                             </div>
                                             <div class="w-full">
                                                 <form
-                                                    class="p-2 w-full text-white hover:text-black bg-red-500 rounded-lg text-center"
+                                                    class="p-2 px-4 w-full text-white hover:text-black bg-red-500 rounded-lg text-center"
                                                     method="post"
                                                     action="{{ route('deldiscount', ['id' => $item->id]) }}">
                                                     @csrf
@@ -92,7 +91,6 @@
         });
     </script>
     @include('sweetalert::alert')
-    @include('layout.script')
 
 </body>
 

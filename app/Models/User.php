@@ -26,7 +26,7 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-    
+
     public function carts()
     {
         return $this->hasMany(Cart::class);
@@ -36,7 +36,7 @@ class User extends Authenticatable
     {
         return $this->hasOne(Store::class);
     }
-    
+
     public function chair()
     {
         return $this->hasMany(Chair::class);

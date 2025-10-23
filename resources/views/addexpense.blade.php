@@ -22,14 +22,14 @@
                     <h1 class="font-extrabold text-3xl">Add expense</h1>
                 </div>
                 <div class="p-6">
-                    <form class="space-y-3" method="post" action="{{ route('postexpense') }}"
+                    <form id="expenseForm" class="space-y-3" method="post" action="{{ route('postexpense') }}"
                         enctype="multipart/form-data">
                         @csrf @method('post')
                         <div class="space-y-2">
                             <label class="font-semibold text-black">Nama:</label>
                             <input type="text"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 p-2 rounded-lg w-full"
-                                id="name" name="name" placeholder="Nama" required />
+                                id="name" name="name" placeholder="Operational" required />
                         </div>
                         <div class="space-y-2">
                             <label class="font-semibold text-black">Nominal:</label>
@@ -37,7 +37,7 @@
                                 class="bg-gray-50 border border-gray-300 text-gray-900 p-2 rounded-lg w-full"
                                 id="nominal" name="nominal" placeholder="Nominal" required />
                         </div>
-                        <button type="submit" class="bg-blue-500 text-white p-4 w-full hover:text-black rounded-lg">
+                        <button id="submitBtn" type="submit" class="bg-blue-500 text-white p-4 w-full hover:text-black rounded-lg">
                             Submit
                         </button>
                     </form>
@@ -45,8 +45,16 @@
             </div>
         </div>
     </main>
-    @include('layout.script')
+ <script>
+        const form = document.getElementById('expenseForm');
+        const submitBtn = document.getElementById('submitBtn');
 
+        form.addEventListener('submit', () => {
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Submitting...';
+            submitBtn.classList.add('opacity-70', 'cursor-not-allowed');
+        });
+    </script>
 </body>
 
 </html>

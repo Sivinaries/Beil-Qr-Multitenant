@@ -21,8 +21,7 @@
                 <div class="p-3">
                     <div class="flex justify-between">
                         <h1 class="font-extrabold text-3xl">Category</h1>
-                        <a class="p-2 bg-blue-500 rounded-lg text-white hover:text-black text-center" href="{{ route('addcategory') }}">Add
-                            category</a>
+                        <a class="p-2 px-8 bg-green-500 rounded-lg text-white hover:text-black text-center" href="{{ route('addcategory') }}">+ Add</a>
                     </div>
                 </div>
                 <div class="p-2">
@@ -47,13 +46,13 @@
                                             <div class="w-full">
                                                 <a href="{{ route('editcategory', ['id' => $item->id]) }}">
                                                     <h1
-                                                        class="p-2 text-white hover:text-black bg-blue-500 rounded-lg text-center">
+                                                        class="p-2 text-white hover:text-black bg-blue-500 rounded-lg text-center px-4">
                                                         Edit</h1>
                                                 </a>
                                             </div>
                                             <div class="w-full">
                                                 <form
-                                                    class="p-2 text-white hover:text-black bg-red-500 rounded-lg text-center"
+                                                    class="p-2 text-white hover:text-black bg-red-500 rounded-lg text-center px-4"
                                                     method="post"
                                                     action="{{ route('delcategory', ['id' => $item->id]) }}">
                                                     @csrf
@@ -89,7 +88,6 @@
         });
     </script>
     @include('sweetalert::alert')
-    @include('layout.script')
 
 </body>
 </html>

@@ -55,7 +55,8 @@
                                         <h1 class="text-base md:text-xl font-light">Address:</h1>
                                         <h1 class="text-base md:text-xl font-bold">{{ $item->alamat }}</h1>
                                     </div>
-                                    <div id="map" class="w-full h-64 rounded-lg z-10"></div> <!-- Map Container -->
+                                    <div id="map" class="w-full h-64 rounded-lg z-10"></div>
+                                    <!-- Map Container -->
                                     <div class="flex justify-between">
                                         <h1 class="text-base md:text-xl font-light">Open:</h1>
                                         <h1 class="text-base md:text-xl font-bold">{{ $item->jam }}</h1>
@@ -70,8 +71,8 @@
                                     </div>
                                     <div class="w-full p-4 bg-blue-500 rounded-lg text-center">
                                         <a class=" text-white hover:text-black text-center"
-                                        href="{{ route('editprofil', ['id' => $item->id]) }}">Edit store</a>
-                                    </div>        
+                                            href="{{ route('editprofil', ['id' => $item->id]) }}">Edit store</a>
+                                    </div>
                                 </div>
                             </div>
                         @endforeach
@@ -81,7 +82,6 @@
         </div>
     </main>
     @include('sweetalert::alert')
-    @include('layout.script')
 
 
     <!-- Map Script -->

@@ -169,7 +169,7 @@ class OrderController extends Controller
             $params = [
                 'transaction_details' => [
                     'order_id' => $orderId,
-                    'gross_amount' => $cart->total_amount + ($request->ongkir ?? 0),
+                    'gross_amount' => $cart->total_amount,
                 ],
                 'item_details' => $items,
                 'customer_details' => $customer_details,
@@ -200,31 +200,32 @@ class OrderController extends Controller
     public function archive($orderId)
     {
         $order = Order::find($orderId);
-
         $user = auth()->user();
+        $store = $user->store;
 
         $settlement = $user->settlements()->latest()->first();
 
         if (!$settlement) {
             $settlement = new Settlement();
             $settlement->user_id = $user->id;
-            $settlement->store_id = $user->store->id;
-            $settlement->start_time = now(); // Set as needed
-            $settlement->start_amount = 0; // Initialize as needed
-            $settlement->total_amount = 0; // Initialize as needed
-            $settlement->expected = 0; // Initialize as needed
+            $settlement->store_id = $store->id;
+            $settlement->start_time = now();
+            $settlement->start_amount = 0;
+            $settlement->total_amount = 0;
+            $settlement->expected = 0;
             $settlement->save();
         }
 
-        DB::transaction(function () use ($order, $settlement, $user) {
+        DB::transaction(function () use ($order, $settlement, $user, $store) {
+            // === Create history ===
             $history = new Histoy();
             $history->id = $order->id;
-            $history->store_id = $user->store->id;
+            $history->store_id = $store->id;
             $history->no_order = $order->no_order;
             $history->kursi = $order->cart->user->name;
             $history->name = $order->atas_nama;
-            $orderDetails = '';
 
+            $orderDetails = '';
             foreach ($order->cart->cartMenus as $cartMenu) {
                 $orderDetails .= $cartMenu->menu->name . ' - ' . $cartMenu->quantity . ' - ' . $cartMenu->notes . ' - ';
             }
@@ -233,20 +234,25 @@ class OrderController extends Controller
             $history->total_amount = $order->cart->total_amount;
             $history->status = $order->status;
             $history->payment_type = $order->payment_type;
-            $history->settlement_id = $settlement->id; // Set the settlement_id
-
+            $history->settlement_id = $settlement->id;
             $history->save();
 
+            // === Update settlement expected amount ===
             $totalHistoyAmount = $settlement->histoys()->sum('total_amount');
             $settlement->expected = $totalHistoyAmount + $settlement->start_amount;
             $settlement->save();
 
+            // === Tambah balance jika non-cash ===
+            if (strtolower($order->payment_type) !== 'cash') {
+                $store->increment('balance', $order->cart->total_amount);
+            }
+
+            // === Cleanup ===
             foreach ($order->cart->cartMenus as $cartMenu) {
                 $cartMenu->delete();
             }
 
             $order->cart->delete();
-
             $order->delete();
 
             Cache::forget('settlements_user_' . Auth::id());

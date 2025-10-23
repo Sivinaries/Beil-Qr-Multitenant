@@ -70,8 +70,8 @@
             </div>
         </div>
     </main>
-    @include('layout.script')
     @include('sweetalert::alert')
+
 </body>
 
 </html>

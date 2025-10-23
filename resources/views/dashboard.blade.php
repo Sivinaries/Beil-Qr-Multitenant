@@ -193,7 +193,6 @@
         };
         new Chart(document.getElementById('grafikExpense'), config4);
     </script>
-    @include('layout.script')
     @include('sweetalert::alert')
 
 </body>

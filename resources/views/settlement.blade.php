@@ -93,7 +93,5 @@
         });
     </script>
     @include('sweetalert::alert')
-    @include('layout.script')
-
 </body>
 </html>

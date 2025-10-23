@@ -336,7 +336,5 @@
             });
         });
     </script>
-    @include('layout.script')
-
 </body>
 </html>

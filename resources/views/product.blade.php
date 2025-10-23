@@ -20,9 +20,8 @@
                 <div class="p-3">
                     <div class="flex justify-between">
                         <h1 class="font-extrabold text-3xl">Products</h1>
-                        <a class="p-2 bg-blue-500 rounded-lg text-white hover:text-black text-center"
-                            href="{{ route('addproduct') }}">Add
-                            product</a>
+                        <a class="p-2 px-8 bg-green-500 rounded-lg text-white hover:text-black text-center"
+                            href="{{ route('addproduct') }}">+ Add</a>
                     </div>
                     <div class="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-6 gap-2 p-2">
                         @foreach ($menus as $menu)
@@ -84,8 +83,6 @@
         </div>
     </main>
     @include('sweetalert::alert')
-    @include('layout.script')
-
 </body>
 
 </html>

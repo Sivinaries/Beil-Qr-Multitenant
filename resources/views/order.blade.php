@@ -21,8 +21,8 @@
                 <div class="p-3">
                     <div class="flex justify-between">
                         <h1 class="font-extrabold text-3xl">Orders</h1>
-                        <a class="p-2 bg-blue-500 rounded-lg text-white hover:text-black text-center"
-                            href="{{ route('addorder') }}">Add Order</a>
+                        <a class="p-2 px-8 bg-green-500 rounded-lg text-white hover:text-black text-center"
+                            href="{{ route('addorder') }}">+ Add</a>
                     </div>
                 </div>
                 <div class="p-2">
@@ -32,7 +32,7 @@
                             <thead class="w-full">
                                 <th>No</th>
                                 <th>Date</th>
-                                <th>Order Id</th>
+                                <th>Id</th>
                                 <th>Layanan</th>
                                 <th>User</th>
                                 <th>Chair</th>
@@ -58,8 +58,8 @@
                                         <td>
                                             @if ($order->cart->cartMenus)
                                                 @foreach ($order->cart->cartMenus as $cartMenu)
-                                                    {{ $cartMenu->menu->name ?? 'N/A' }} - 
-                                                    {{ $cartMenu->quantity ?? 0 }} - 
+                                                    {{ $cartMenu->menu->name ?? 'N/A' }} -
+                                                    {{ $cartMenu->quantity ?? 0 }} -
                                                     {{ $cartMenu->notes ?? 'No notes' }} <br />
                                                 @endforeach
                                             @else
@@ -74,17 +74,18 @@
                                         <td>{{ $order->status ?? 'Unknown' }}</td>
                                         <td class="flex gap-2">
                                             <div class="w-full">
-                                                <form action="{{ route('archive', ['orderId' => $order->id]) }}" method="POST">
+                                                <form action="{{ route('archive', ['orderId' => $order->id]) }}"
+                                                    method="POST">
                                                     @csrf
                                                     <button type="submit"
-                                                        class="p-2 w-full text-white hover:text-black bg-blue-500 rounded-lg text-center">
+                                                        class="p-2 px-4 w-full text-white hover:text-black bg-blue-500 rounded-lg text-center">
                                                         Done
                                                     </button>
                                                 </form>
                                             </div>
                                             <div class="w-full">
                                                 <form
-                                                    class="p-2 text-white hover:text-black bg-red-500 rounded-lg text-center"
+                                                    class="p-2 px-4 text-white hover:text-black bg-red-500 rounded-lg text-center"
                                                     method="post"
                                                     action="{{ route('delorder', ['id' => $order->id]) }}">
                                                     @csrf
@@ -97,7 +98,7 @@
                                 @endforeach
                             </tbody>
                         </table>
-                                            </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -111,8 +112,6 @@
 
         });
     </script>
-        @include('layout.script')
-
 </body>
 
 </html>

@@ -21,7 +21,7 @@
                     <h1 class="font-extrabold text-3xl">Edit expense</h1>
                 </div>
                 <div class="p-6">
-                    <form class="space-y-3" method="post" action="{{ route('updateexpense', ['id' => $expense->id]) }}"
+                    <form id="expenseForm" class="space-y-3" method="post" action="{{ route('updateexpense', ['id' => $expense->id]) }}"
                         enctype="multipart/form-data">
                         @csrf
                         @method('put')
@@ -37,14 +37,22 @@
                                 class="bg-gray-50 border border-gray-300 text-gray-900 p-2 rounded-lg w-full"
                                 id="nominal" name="nominal" value="{{ $expense->nominal }}" required>
                         </div>
-                        <button type="submit"
+                        <button id="submitBtn" type="submit"
                             class="bg-blue-500 text-white p-4 w-full hover:text-black rounded-lg">Submit</button>
                     </form>
                 </div>
             </div>
         </div>
     </main>
-    @include('layout.script')
+<script>
+     const form = document.getElementById('expenseForm');
+        const submitBtn = document.getElementById('submitBtn');
 
+        form.addEventListener('submit', () => {
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Submitting...';
+            submitBtn.classList.add('opacity-70', 'cursor-not-allowed');
+        });
+</script>
 </body>
 </html>

@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Chair</title>
+    <title>Barcode</title>
     @include('layout.head')
     <link href="//cdn.datatables.net/2.0.2/css/dataTables.dataTables.min.css" rel="stylesheet" />
 </head>
@@ -20,10 +20,9 @@
             <div class='w-full rounded-lg bg-white h-fit mx-auto'>
                 <div class="p-3">
                     <div class="flex justify-between">
-                        <h1 class="font-extrabold text-3xl">Chairs</h1>
-                        <a class="p-2 bg-blue-500 rounded-lg text-white hover:text-black text-center"
-                            href="{{ route('addchair') }}">Add
-                            chair</a>
+                        <h1 class="font-extrabold text-3xl">Barcodes</h1>
+                        <a class="p-2 bg-green-500 rounded-lg text-white hover:text-black text-center px-8"
+                            href="{{ route('addchair') }}">+ Add</a>
                     </div>
                 </div>
                 <div class="p-2">
@@ -32,8 +31,7 @@
                             <thead class="w-full">
                                 <th>No</th>
                                 <th>Date</th>
-                                <th>Kursi</th>
-                                <th>Level</th>
+                                <th>Barcode</th>
                                 <th>Action</th>
                             </thead>
                             <tbody>
@@ -45,18 +43,17 @@
                                         <td>{{ $no++ }}</td>
                                         <td>{{ $item->created_at ?? 'N/A'}}</td>
                                         <td>{{ $item->name ?? 'N/A'}}</td>
-                                        <td>{{ $item->level ?? 'N/A'}}</td>
                                         <td class="flex gap-2">
                                             <div class="w-full">
                                                 <a href="{{ route('login-qr', ['id' => $item->id]) }}">
                                                     <h1
-                                                        class="p-2 text-white hover:text-black bg-blue-500 rounded-lg text-center">
-                                                        Barcode</h1>
+                                                        class="p-2 text-white hover:text-black bg-blue-500 rounded-lg px-4 text-center">
+                                                        Show</h1>
                                                 </a>
                                             </div>
                                             <div class="w-full">
                                                 <form
-                                                    class="p-2 text-white hover:text-black bg-red-500 rounded-lg text-center"
+                                                    class="p-2 text-white hover:text-black bg-red-500 px-4 rounded-lg text-center"
                                                     method="post"
                                                     action="{{ route('delchair', ['id' => $item->id]) }}">
                                                     @csrf
@@ -92,7 +89,6 @@
         });
     </script>
     @include('sweetalert::alert')
-    @include('layout.script')
 
 </body>
 </html>

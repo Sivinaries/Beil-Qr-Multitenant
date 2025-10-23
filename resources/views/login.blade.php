@@ -85,7 +85,6 @@
         </div>
     </div>
     @include('sweetalert::alert')
-    @include('layout.script')
 
     <script>
         // Password Visibility Toggle for Login

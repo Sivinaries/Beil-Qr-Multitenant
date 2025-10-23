@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('store');
             $table->string('location');
             $table->string('status');
+            $table->integer('balance')->default(0);
             $table->timestamps();
         });
     }

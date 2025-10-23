@@ -27,7 +27,7 @@
                     <h1 class="font-extrabold text-3xl">Add store</h1>
                 </div>
                 <div class="p-6">
-                    <form class="space-y-3" method="post" action="{{ route('poststore') }}"
+                    <form id="storeForm" class="space-y-3" method="post" action="{{ route('poststore') }}"
                         enctype="multipart/form-data">
                         @csrf @method('post')
                         <!-- Penanggung Jawab Section -->
@@ -140,7 +140,7 @@
                                 @enderror
                             </div>
                         </div>
-                        <button type="submit" class="bg-blue-500 text-white p-4 w-full hover:text-black rounded-lg">
+                        <button id="submitBtn" type="submit" class="bg-blue-500 text-white p-4 w-full hover:text-black rounded-lg">
                             Submit
                         </button>
                     </form>
@@ -148,7 +148,6 @@
             </div>
         </div>
     </main>
-    @include('layout.script')
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
         integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <script>
@@ -219,7 +218,17 @@
                 alert("Geolocation is not supported by this browser.");
             }
         };
+
+         const form = document.getElementById('storeForm');
+        const submitBtn = document.getElementById('submitBtn');
+
+        form.addEventListener('submit', () => {
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Submitting...';
+            submitBtn.classList.add('opacity-70', 'cursor-not-allowed');
+        });
     </script>
+
 </body>
 
 </html>

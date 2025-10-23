@@ -21,34 +21,35 @@
                     <h1 class="font-extrabold text-3xl">Edit product</h1>
                 </div>
                 <div class="p-6">
-                    <form class="space-y-3" method="post" action="{{ route('updateproduct', ['id' => $menu->id]) }}"
-                        enctype="multipart/form-data">
+                    <form id="productForm" class="space-y-3" method="post"
+                        action="{{ route('updateproduct', ['id' => $menu->id]) }}" enctype="multipart/form-data">
                         @csrf
                         @method('put')
                         <div class="grid grid-cols-1 xl:grid-cols-3 gap-2">
-                        <div class="space-y-2">
-                            <label class="font-semibold text-black">Nama produk:</label>
-                            <input type="text"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 p-2 rounded-lg w-full"
-                                id="name" name="name" value="{{ $menu->name }}" required>
+                            <div class="space-y-2">
+                                <label class="font-semibold text-black">Nama produk:</label>
+                                <input type="text"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 p-2 rounded-lg w-full"
+                                    id="name" name="name" value="{{ $menu->name }}" required>
+                            </div>
+                            <div class="space-y-2">
+                                <label class="font-semibold text-black">Harga produk:</label>
+                                <input type="number"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 p-2 rounded-lg w-full"
+                                    id="price" name="price" value="{{ $menu->price }}" required>
+                            </div>
+                            <div class="space-y-2">
+                                <label class="font-semibold text-black">Kategori:</label>
+                                <select id="category" name="category_id"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 p-2 rounded-lg w-full"
+                                    required>
+                                    <option></option>
+                                    @foreach ($category as $cat)
+                                        <option value="{{ $cat->id }}">{{ $cat->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
                         </div>
-                        <div class="space-y-2">
-                            <label class="font-semibold text-black">Harga produk:</label>
-                            <input type="number"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 p-2 rounded-lg w-full"
-                                id="price" name="price" value="{{ $menu->price }}" required>
-                        </div>
-                        <div class="space-y-2">
-                            <label class="font-semibold text-black">Kategori:</label>
-                            <select id="category" name="category_id"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 p-2 rounded-lg w-full" required>
-                                <option></option>
-                                @foreach ($category as $cat)
-                                    <option value="{{ $cat->id }}">{{ $cat->name }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                    </div>
                         <div class="space-y-2">
                             <label class="font-semibold text-black">Deskripsi produk:</label>
                             <textarea class="bg-gray-50 border border-gray-300 text-gray-900 p-2 rounded-lg w-full" id="description"
@@ -62,7 +63,7 @@
                                 class="bg-gray-50 border border-gray-300 text-gray-900 p-2 rounded-lg w-full"
                                 id="img" name="img" value="{{ $menu->img }}" required>
                         </div>
-                        <button type="submit"
+                        <button id="submitBtn" type="submit"
                             class="bg-blue-500 text-white p-4 w-full hover:text-black rounded-lg">Submit</button>
                     </form>
                 </div>
@@ -73,17 +74,24 @@
         document.getElementById('description').addEventListener('input', function() {
             var maxLength = 200;
             var currentLength = this.value.length;
-    
+
             document.getElementById('charCount').innerText = currentLength + '/' + maxLength;
-    
+
             if (currentLength >= maxLength) {
                 this.setAttribute('disabled', true);
             } else {
                 this.removeAttribute('disabled');
             }
         });
-    </script>    
-    @include('layout.script')
+        const form = document.getElementById('productForm');
+        const submitBtn = document.getElementById('submitBtn');
 
+        form.addEventListener('submit', () => {
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Submitting...';
+            submitBtn.classList.add('opacity-70', 'cursor-not-allowed');
+        });
+    </script>
 </body>
+
 </html>

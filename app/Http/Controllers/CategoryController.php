@@ -46,7 +46,7 @@ class CategoryController extends Controller
         $userStore = auth()->user()->store;
 
         $data = $request->validate([
-            'name' => 'required',
+            'name' => 'required | unique:categories,name,NULL,id,store_id,' . $userStore->id,
         ]);
 
         $data['store_id'] = $userStore->id;
@@ -70,7 +70,7 @@ class CategoryController extends Controller
         $userStore = auth()->user()->store;
 
         $request->validate([
-            'name' => 'required',
+            'name' => 'required | unique:categories,name,NULL,id,store_id,' . $userStore->id,
         ]);
 
         $data = $request->only(['name']);

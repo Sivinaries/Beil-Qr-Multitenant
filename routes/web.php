@@ -17,6 +17,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DiscountController;
 use App\Http\Controllers\ShowcaseController;
+use App\Http\Controllers\WithdrawController;
 use App\Http\Controllers\SettlementController;
 
 //AUTH CONTROLLER
@@ -120,6 +121,12 @@ Route::middleware('auth:web')->group(function () {
     Route::get('/addtotalamount', [SettlementController::class, 'totalamount'])->name('addtotalamount');
     Route::post('/createstart', [SettlementController::class, 'poststart'])->name('poststart');
     Route::post('/createtotal', [SettlementController::class, 'posttotal'])->name('posttotal');
+
+    //WITHDRAW CONTROLLER
+    Route::get('/withdraw', [WithdrawController::class, 'index'])->name('withdraw');
+    Route::get('/addwithdraw', [WithdrawController::class, 'create'])->name('addwithdraw');
+    Route::post('/postwithdraw', [WithdrawController::class, 'store'])->name('postwithdraw');
+    Route::delete('/expense/{id}/show', [WithdrawController::class, 'show'])->name('showwithdraw');
 
     //QR CONTROLLER
     Route::get('/login/qr/{id}', [QrController::class, 'LoginQr'])->name('login-qr');

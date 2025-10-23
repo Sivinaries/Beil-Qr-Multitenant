@@ -2,25 +2,34 @@
 <html lang="en">
 
 <head>
-    <title>Stores</title>
+    <title>Withdraw</title>
     @include('layout.head')
     <link href="//cdn.datatables.net/2.0.2/css/dataTables.dataTables.min.css" rel="stylesheet" />
 </head>
 
 <body class="bg-gray-50">
+
     <!-- sidenav  -->
     @include('layout.sidebar')
     <!-- end sidenav -->
     <main class="md:ml-64 xl:ml-72 2xl:ml-72">
-
         <!-- Navbar -->
         @include('layout.navbar')
         <!-- end Navbar -->
         <div class="p-5">
             <div class='w-full rounded-lg bg-white h-fit mx-auto'>
                 <div class="p-3">
-                    <div class="">
-                        <h1 class="font-extrabold text-3xl">Store</h1>
+                    <div class="flex justify-between">
+                        <div>
+                            <h1 class="font-extrabold text-3xl">Withdraws</h1>
+                            <h1 class="text-xl font-light">
+                                Your Balance: Rp. {{ number_format(auth()->user()->balance, 0, ',', '.') }}
+                            </h1>
+                        </div>
+                        <div>
+                        <a class="p-2 px-8 bg-green-500 rounded-lg text-white hover:text-black text-center"
+                            href="{{ route('addwithdraw') }}">+ Add</a>
+                            </div>
                     </div>
                 </div>
                 <div class="p-2">
@@ -29,40 +38,28 @@
                             <thead class="w-full">
                                 <th>No</th>
                                 <th>Date</th>
-                                <th>User</th>
-                                <th>Store</th>
-                                <th>Address</th>
+                                <th>Name</th>
+                                <th>Payment</th>
+                                <th>Amount</th>
                                 <th>Action</th>
                             </thead>
                             <tbody>
                                 @php
                                     $no = 1;
                                 @endphp
-                                @foreach ($stores as $item)
+                                @foreach ($withdraws as $item)
                                     <tr class="border-2">
                                         <td>{{ $no++ }}</td>
-                                        <td>{{ $item->created_at }}</td>
-                                        <td>{{ $item->name }}</td>
-                                        <td>{{ $item->store }}</td>
-                                        <td>{{ $item->location }}</td>
+                                        <td>{{ $item->created_at ?? 'N/A' }}</td>
+                                        <td>{{ $item->name ?? 'N/A' }}</td>
+                                        <td>Rp. {{ number_format($item->amount, 0, ',', '.') ?? 'N/A' }} </td>
                                         <td class="flex gap-2">
                                             <div class="w-full">
-                                                <form
-                                                    class="p-2 text-white hover:text-black bg-yellow-500 rounded-lg text-center"
-                                                    method="post" action="{{ route('delstore', ['id' => $item->id]) }}">
-                                                    @csrf
-                                                    @method('delete')
-                                                    <button type="submit">Show</button>
-                                                </form>
-                                            </div>
-                                            <div class="w-full">
-                                                <form
-                                                    class="p-2 text-white hover:text-black bg-red-500 rounded-lg text-center"
-                                                    method="post" action="{{ route('delstore', ['id' => $item->id]) }}">
-                                                    @csrf
-                                                    @method('delete')
-                                                    <button type="submit">Delete</button>
-                                                </form>
+                                                <a href="{{ route('showwithdraw', ['id' => $item->id]) }}">
+                                                    <h1
+                                                        class="p-2 px-4 text-white hover:text-black bg-blue-500 rounded-lg text-center">
+                                                        Show</h1>
+                                                </a>
                                             </div>
                                         </td>
                                     </tr>
@@ -92,5 +89,7 @@
         });
     </script>
     @include('sweetalert::alert')
+
 </body>
+
 </html>

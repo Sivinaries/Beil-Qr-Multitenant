@@ -20,6 +20,7 @@ class Store extends Model
         'store',
         'status',
         'location',
+        'balance',
     ];
 
     public function categories()
@@ -70,5 +71,10 @@ class Store extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function withdraws()
+    {
+        return $this->hasMany(Withdraw::class);
     }
 }

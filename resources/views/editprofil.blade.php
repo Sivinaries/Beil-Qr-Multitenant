@@ -79,7 +79,6 @@
             </div>
         </div>
     </main>
-    @include('layout.script')
     <script>
         let map;
         let marker;

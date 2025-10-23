@@ -97,7 +97,7 @@
                             <a class="hover:text-black text-white text-xl bg-green-500 p-2 w-fit rounded-lg"
                                 href="{{ route('addcart') }}">Add Product</a>
                         </div>
-                        <form class="space-y-5" method="post" action="{{ route('postorder') }}">
+                        <form id="orderForm" class="space-y-5" method="post" action="{{ route('postorder') }}">
                             @csrf
                             @method('post')
                             <div class="space-y-2">
@@ -118,7 +118,7 @@
                                     <label class="text-black font-bold text-2xl">Total:</label>
                                     <h1 class="text-2xl">{{ number_format($cart->total_amount, 0, ',', '.') }}</h1>
                                 </div>
-                                <button type="submit"
+                                <button id="submitBtn" type="submit"
                                     class="text-xl p-2 w-fit rounded-lg {{ $cart->total_amount <= 0 ? 'bg-gray-200 cursor-not-allowed text-black' : 'bg-blue-500 hover:bg-blue-600 text-white' }}"
                                     {{ $cart->total_amount <= 0 ? 'disabled' : '' }}>
                                     Make Order
@@ -130,8 +130,16 @@
                 </div>
             </div>
     </main>
-    @include('layout.script')
+<script>
+      const form = document.getElementById('orderForm');
+        const submitBtn = document.getElementById('submitBtn');
 
+        form.addEventListener('submit', () => {
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Submitting...';
+            submitBtn.classList.add('opacity-70', 'cursor-not-allowed');
+        });
+</script>
 </body>
 
 </html>

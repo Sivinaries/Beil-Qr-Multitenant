@@ -61,7 +61,7 @@
 
 <body class="">
 
-<div class="h-screen w-full mx-auto bg-gradient-to-b from-red-800 to-gray-100 flex items-center p-4 xl:p-0 2xl:p-0">
+    <div class="h-screen w-full mx-auto bg-linear-to-b from-red-800 to-gray-100 flex items-center p-4 xl:p-0 2xl:p-0">
         <div class="mx-auto sm:max-w-sm w-full space-y-3 p-8 bg-white rounded-3xl">
             <div class="space-y-3">
                 <div>

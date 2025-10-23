@@ -22,7 +22,7 @@
                     <h1 class="font-extrabold text-3xl">Add product</h1>
                 </div>
                 <div class="p-6">
-                    <form class="space-y-3" method="post" action="{{ route('postproduct') }} "
+                    <form id="productForm" class="space-y-3" method="post" action="{{ route('postproduct') }} "
                         enctype="multipart/form-data">
                         @csrf
                         @method('post')
@@ -31,13 +31,13 @@
                                 <label class="font-semibold text-black">Nama produk:</label>
                                 <input type="text"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 p-2 rounded-lg w-full"
-                                    id="name" name="name" placeholder="Nama produk" required>
+                                    id="name" name="name" placeholder="Coffe" required>
                             </div>
                             <div class="space-y-2">
                                 <label class="font-semibold text-black">Harga produk:</label>
                                 <input type="number"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 p-2 rounded-lg w-full"
-                                    id="price" name="price" placeholder="Harga produk" required>
+                                    id="price" name="price" placeholder="1000000" required>
                             </div>
                             <div class="space-y-2">
                                 <label class="font-semibold text-black">Kategori:</label>
@@ -63,7 +63,7 @@
                                 class="bg-gray-50 border border-gray-300 text-gray-900 p-2 rounded-lg w-full"
                                 id="img" name="img" required>
                         </div>
-                        <button type="submit"
+                        <button id="submitBtn" type="submit"
                             class="bg-blue-500 text-white p-4 w-full hover:text-black rounded-lg">Submit</button>
                     </form>
                 </div>
@@ -83,8 +83,16 @@
                 this.removeAttribute('disabled');
             }
         });
+
+        const form = document.getElementById('productForm');
+        const submitBtn = document.getElementById('submitBtn');
+
+        form.addEventListener('submit', () => {
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Submitting...';
+            submitBtn.classList.add('opacity-70', 'cursor-not-allowed');
+        });
     </script>    
-    @include('layout.script')
 
 </body>
 </html>

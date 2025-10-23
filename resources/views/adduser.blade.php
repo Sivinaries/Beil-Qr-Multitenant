@@ -21,7 +21,7 @@
                     <h1 class="font-extrabold text-3xl">Add user</h1>
                 </div>
                 <div class="p-6">
-                    <form class="space-y-3" method="post" action="{{ route('postuser') }}"
+                    <form id="userForm" class="space-y-3" method="post" action="{{ route('postuser') }}"
                         enctype="multipart/form-data">
                         @csrf
                         @method('post')
@@ -49,13 +49,21 @@
                                 class="bg-gray-50 border border-gray-300 text-gray-900 p-2 rounded-lg w-full"
                                 id="password" name="password_confirmation" placeholder="Password Confirmation" required>
                         </div>
-                        <button type="submit" class="bg-blue-500  text-white p-4 w-full hover:text-black rounded-lg">Submit</button>
+                        <button id="submitBtn" type="submit" class="bg-blue-500  text-white p-4 w-full hover:text-black rounded-lg">Submit</button>
                     </form>
                 </div>
             </div>
         </div>
     </main>
-    @include('layout.script')
+<script>
+     const form = document.getElementById('userForm');
+        const submitBtn = document.getElementById('submitBtn');
 
+        form.addEventListener('submit', () => {
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Submitting...';
+            submitBtn.classList.add('opacity-70', 'cursor-not-allowed');
+        });
+</script>
 </body>
 </html>
