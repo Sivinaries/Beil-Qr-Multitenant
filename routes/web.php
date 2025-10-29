@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\QrController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\ChatController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ChairController;
 use App\Http\Controllers\OrderController;
@@ -131,6 +132,10 @@ Route::middleware('auth:web')->group(function () {
 
     //QR CONTROLLER
     Route::get('/login/qr/{id}', [QrController::class, 'LoginQr'])->name('login-qr');
+
+    //CONSULT
+    Route::get('/bot', [ChatController::class, 'bot'])->name('bot');
+    Route::post('/gen', [ChatController::class, 'gen'])->name('gen');
 });
 
 Route::middleware('auth:chair')->group(function () {

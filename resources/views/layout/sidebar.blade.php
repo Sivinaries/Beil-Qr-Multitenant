@@ -151,7 +151,7 @@
                     @endif
                     <hr class="mx-5 shadow-2xl text-gray-100 rounded-r-lg rounded-l-lg" />
                     <li class="p-4 mx-2">
-                        <a class="" href="">
+                        <a class="" href="{{ route('bot') }}">
                             <div class="flex space-x-4">
                                 <div class="bg-red-600 p-2 rounded-lg">
                                     <i class="material-icons text-white">support_agent</i>

@@ -14,6 +14,7 @@
         "laravel/tinker": "^2.10.1",
         "maatwebsite/excel": "^3.1",
         "midtrans/midtrans-php": "^2.6",
+        "prism-php/prism": "^0.97.0",
         "ramsey/uuid": "^4.9",
         "realrashid/sweet-alert": "^7.3",
         "simplesoftwareio/simple-qrcode": "^4.2"
