@@ -114,4 +114,19 @@ class Pagescontroller extends Controller
             'selectedDate' => $selectedDate
         ]);
     }
+
+    public function profil()
+    {
+        if (!Auth::check()) {
+            return redirect('/');
+        }
+
+        $userStore = Auth::user()->store;
+
+        if (!$userStore) {
+            return redirect()->route('addstore');
+        }
+
+        return view('profil', compact('userStore'));
+    }
 }

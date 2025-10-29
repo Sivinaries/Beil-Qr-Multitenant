@@ -60,17 +60,18 @@
                 <div class="grid grid-cols-4 bg-red-900 p-4 shadow-xl rounded-b-[20px]">
                     <div class="space-y-2 col-span-3">
                         <div class="my-auto">
-                            <h1 class="text-2xl text-white font-bold">{{ $store->store ?? 'N/A'}}</h1>
+                            <h1 class="text-2xl text-white font-bold">{{ $store->store ?? 'N/A' }}</h1>
                         </div>
                         <div>
                             <div class="my-auto">
-                                <h1 class="text-sm text-white font-light line-clamp-1">{{ $store->address ?? 'N/A'}}</h1>
+                                <h1 class="text-sm text-white font-light line-clamp-1">{{ $store->address ?? 'N/A' }}
+                                </h1>
                             </div>
                         </div>
                         <div class="flex justify-between">
                             @auth
                                 <div class="space-y-2">
-                                    <h1 class="text-2xl font-base text-white">Hi, {{ auth()->user()->name ?? 'N/A'}}</h1>
+                                    <h1 class="text-2xl font-base text-white">Hi, {{ auth()->user()->name ?? 'N/A' }}</h1>
                                 </div>
                             @else
                                 <div class="space-y-2">
@@ -179,9 +180,9 @@
                                             alt="Product Image" class="mx-auto my-auto w-14 h-17 rounded-lg relative" />
                                     </div>
                                     <div>
-                                        <h1 class="text-white text-sm font-bold">{{ $menu->name ?? 'N/A'}}</h1>
+                                        <h1 class="text-white text-sm font-bold">{{ $menu->name ?? 'N/A' }}</h1>
                                         <h1 class="text-white text-sm font-bold">Rp.
-                                            {{ number_format($menu->price, 0, ',', '.') ?? 'N/A'}}</h1>
+                                            {{ number_format($menu->price, 0, ',', '.') ?? 'N/A' }}</h1>
                                     </div>
                                 </div>
                             </a>

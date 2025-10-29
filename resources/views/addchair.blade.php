@@ -7,6 +7,7 @@
 </head>
 
 <body class="bg-gray-50">
+    
     @include('layout.sidebar')
 
     <main class="md:ml-64 xl:ml-72 2xl:ml-72">
@@ -19,17 +20,15 @@
                 </div>
 
                 <div class="p-6">
-                    <form id="chairForm" class="space-y-3" method="post" action="{{ route('postchair') }}" enctype="multipart/form-data">
+                    <form id="chairForm" class="space-y-3" method="post" action="{{ route('postchair') }}"
+                        enctype="multipart/form-data">
                         @csrf @method('post')
 
                         <div class="space-y-2">
                             <label class="font-semibold text-black">Code:</label>
-                            <input type="text" 
-                                   class="bg-gray-50 border border-gray-300 text-gray-900 p-2 rounded-lg w-full" 
-                                   id="name" 
-                                   name="name" 
-                                   placeholder="Guest" 
-                                   required />
+                            <input type="text"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 p-2 rounded-lg w-full"
+                                id="name" name="name" placeholder="Guest" required />
                         </div>
 
                         <button id="submitBtn" type="submit"
@@ -40,6 +39,7 @@
                 </div>
             </div>
         </div>
+
     </main>
 
     <script>
@@ -52,5 +52,7 @@
             submitBtn.classList.add('opacity-70', 'cursor-not-allowed');
         });
     </script>
+
 </body>
+
 </html>

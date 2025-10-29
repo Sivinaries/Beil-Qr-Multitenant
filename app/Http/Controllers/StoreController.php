@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Store;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cache;
 
 class StoreController extends Controller
 {
@@ -22,7 +24,7 @@ class StoreController extends Controller
     public function store(Request $request)
     {
         $user = auth()->user();
-        
+
         $data = $request->validate([
             'name' => 'required|string|max:255',
             'no_telpon' => 'required|string|max:15', // Adjust the validation if needed
@@ -33,25 +35,20 @@ class StoreController extends Controller
             'store' => 'required|string|max:255',
             'location' => 'required|string|max:255',
         ]);
-    
+
         $data['user_id'] = $user->id;
         $data['status'] = 'Settlement';
-    
+
         if ($request->hasFile('ktp')) {
             $uploadedKtp = $request->file('ktp');
             $ktpName = time() . '_' . $uploadedKtp->getClientOriginalName(); // Prefix with timestamp for uniqueness
             $ktpPath = $uploadedKtp->storeAs('ktp', $ktpName, 'public');
             $data['ktp'] = $ktpPath; // Path is relative to 'storage/app/public'
         }
-    
+
         Store::create($data);
-    
+
         return redirect(route('dashboard'))->with('success', 'Store registered successfully!');
-    }
-        
-    public function show(Store $store)
-    {
-        //
     }
 
     public function edit(Store $store)

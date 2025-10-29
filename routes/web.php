@@ -36,6 +36,7 @@ Route::middleware('auth:web')->group(function () {
 
     //PAGES CONTROLLER
     Route::get('/dashboard', [Pagescontroller::class, 'dashboard'])->name('dashboard');
+    Route::get('/profil', [Pagescontroller::class, 'profil'])->name('profil');
 
     //STORE CONTROLLER
     Route::get('/store', [StoreController::class, 'index'])->name('store');

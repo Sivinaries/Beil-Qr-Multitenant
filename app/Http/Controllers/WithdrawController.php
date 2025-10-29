@@ -11,7 +11,7 @@ class WithdrawController extends Controller
 {
     public function index()
     {
-         if (!Auth::check()) {
+        if (!Auth::check()) {
             return redirect('/');
         }
 
@@ -38,7 +38,7 @@ class WithdrawController extends Controller
 
     public function create()
     {
-        return view('addwithdraw'); 
+        return view('addwithdraw');
     }
 
     public function store(Request $request)
@@ -50,5 +50,4 @@ class WithdrawController extends Controller
     {
         //
     }
-
 }

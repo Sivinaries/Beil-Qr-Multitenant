@@ -349,14 +349,13 @@ class CustomerController extends Controller
     public function akun()
     {
         $chairId = Auth::guard('chair')->user()->id;
-    
+
         $cacheKey = 'akun_' . $chairId;
-    
+
         $chair = Cache::remember($cacheKey, now()->addMinutes(60), function () use ($chairId) {
             return Auth::guard('chair')->user();
         });
-    
+
         return view('user.akun', compact('chair'));
     }
-    
 }
