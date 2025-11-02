@@ -69,31 +69,9 @@
                             </div>
                         </div>
                         <div class="flex justify-between">
-                            @auth
-                                <div class="space-y-2">
-                                    <h1 class="text-2xl font-base text-white">Hi, {{ auth()->user()->name ?? 'N/A' }}</h1>
-                                </div>
-                            @else
-                                <div class="space-y-2">
-                                    <div>
-                                        <h1 class="text-2xl font-base text-white">
-                                            Welcome!
-                                        </h1>
-                                    </div>
-                                    <div class="flex gap-2">
-                                        <div class="p-1 border border-white rounded-md">
-                                            <a href="{{ route('login') }}" class="">
-                                                <h1 class="text-white text-sm px-2 text-center">Login</h1>
-                                            </a>
-                                        </div>
-                                        <div class="p-1 border border-white rounded-md">
-                                            <a href="{{ route('register') }}" class="">
-                                                <h1 class="text-white text-sm px-2 text-center">Register</h1>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            @endauth
+                            <div class="space-y-2">
+                                <h1 class="text-2xl font-base text-white">Hi, {{ auth()->user()->name ?? 'N/A' }}</h1>
+                            </div>
                         </div>
                     </div>
                     @auth
@@ -117,9 +95,9 @@
                         <div class="slider-wrapper">
                             @foreach ($showcase as $item)
                                 <div class="slider-slide">
-                                    <div class="w-full">
+                                    <div class="w-full h-40">
                                         <img src="{{ asset('storage/img/' . basename($item['img'])) }}"
-                                            alt="Showcase Image" class="w-full h-auto rounded-md">
+                                            alt="Showcase Image" class="w-full object-cover rounded-md">
                                     </div>
                                 </div>
                             @endforeach

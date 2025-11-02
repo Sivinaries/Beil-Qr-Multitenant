@@ -20,11 +20,17 @@ class QrController extends Controller
             'storeId' => $chair->store_id
         ]);
 
-        $qrCode = QrCode::size(400)->generate($qrUrl);
+        $filename = "qrcodes/chair_{$chair->id}.svg";
 
-        $filename = "qrcodes/" . Str::random(10) . ".svg";
-        Storage::disk('public')->put($filename, $qrCode);
+        // Only generate a new QR if the file doesn't already exist
+        if (!Storage::disk('public')->exists($filename)) {
+            $qrCode = QrCode::size(400)->generate($qrUrl);
+            Storage::disk('public')->put($filename, $qrCode);
+        }
 
-        return view('qrcode', ['filename' => $filename, 'chair' => $chair]);
+        return view('qrcode', [
+            'filename' => $filename,
+            'chair' => $chair
+        ]);
     }
 }

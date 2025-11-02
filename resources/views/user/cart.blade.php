@@ -22,7 +22,7 @@
                             <h1 class="text-center text-xl font-extralight">Check Your Cart</h1>
                         </div>
                     </div>
-                    <hr>
+                    <hr class="text-gray-100">
                     <div class="flex justify-between mx-10">
                         <a href="{{ route('user-product') }}">
                             <div class="flex space-x-1">

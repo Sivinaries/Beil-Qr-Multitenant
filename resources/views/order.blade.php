@@ -108,8 +108,16 @@
     <script src="//cdn.datatables.net/2.0.2/js/dataTables.min.js"></script>
     <script>
         $(document).ready(function() {
-            let table = $('#myTable').DataTable();
-
+            let table = new DataTable('#myTable', {
+                columnDefs: [{
+                    targets: 1, // Index of the 'Date' column
+                    render: function(data, type, row) {
+                        // Assuming the date is in 'YYYY-MM-DD HH:MM:SS' format
+                        var date = new Date(data);
+                        return date.toLocaleDateString(); // Format the date as needed
+                    },
+                }, ],
+            });
         });
     </script>
 </body>

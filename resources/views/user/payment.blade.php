@@ -24,7 +24,7 @@
                                 <h1 class="text-center text-xl font-extralight">Payment</h1>
                             </div>
                         </div>
-                        <hr>
+                    <hr class="text-gray-100">
                         <div class="flex justify-between mx-10">
                             <a href="{{ route('user-product') }}">
                                 <div class="flex space-x-1">
@@ -70,19 +70,19 @@
                     
                     <div class="space-y-2">
                         <h1><span class="text-red-500">*</span> Atas Nama</h1>
-                        <input class="border w-full rounded-lg p-2" placeholder="John Doe" id="atas_nama" type="text"
+                        <input class="border w-full rounded-lg p-2 border-gray-300" placeholder="John Doe" id="atas_nama" type="text"
                             name="atas_nama">
                     </div>
 
                     <div class="space-y-2">
                         <h1><span class="text-red-500">*</span> Nomor Ponsel</h1>
-                        <input class="border w-full rounded-lg p-2" placeholder="08XXXXXXXX" id="no_telpon"
+                        <input class="border w-full rounded-lg p-2 border-gray-300" placeholder="08XXXXXXXX" id="no_telpon"
                             name="no_telpon">
                     </div>
 
                     <div class="space-y-2">
                         <h1><span class="text-red-500">*</span> Cart</h1>
-                        <div class="space-y-2 border py-4 rounded-lg">
+                        <div class="space-y-2 border py-4 rounded-lg border-gray-300">
                             @foreach ($cart->cartMenus as $item)
                                 <div class="grid grid-cols-3">
                                     <div class="w-12 h-24 mx-auto">

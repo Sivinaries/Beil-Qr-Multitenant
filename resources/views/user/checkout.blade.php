@@ -45,16 +45,6 @@
                 </div>
                 <div class="grid grid-cols-2 gap-2">
                     <div class="space-y-2">
-                        <h1><span class="text-red-500">*</span>Cabang</h1>
-                        <input class="border w-full rounded-lg p-2" type="text" name="cabang"
-                            value="{{ $order->cabang }}" readonly>
-                    </div>
-                    <div class="space-y-2">
-                        <h1><span class="text-red-500">*</span>Tujuan</h1>
-                        <input type="text" class="border w-full rounded-lg p-2" name="alamat"
-                            value="{{ $order->alamat }}" readonly />
-                    </div>
-                    <div class="space-y-2">
                         <h1><span class="text-red-500">*</span> Atas Nama</h1>
                         <input class="border w-full rounded-lg p-2" type="text" name="atas_nama"
                             value="{{ $order->atas_nama }}" readonly>

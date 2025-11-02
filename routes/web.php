@@ -30,7 +30,7 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 //GOOGLE CONTROLLER
 Route::get('/auth/redirect', [GoogleController::class, 'redirectToGoogle'])->name('auth-google');
-Route::get('/auth/callback', [GoogleController::class, 'handleGoogleCallback'])->name('call-google');
+Route::get('/auth/google/callback', [GoogleController::class, 'handleGoogleCallback'])->name('call-google');
 
 Route::middleware('auth:web')->group(function () {
     //ADMIN

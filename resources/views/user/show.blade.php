@@ -13,7 +13,7 @@
             <form action="{{ route('user-postcart') }}" method="post">
                 @csrf
                 <div class="fixed top-0 left-0 right-0 z-50 w-full sm:max-w-sm mx-auto">
-                    <div class="p-6 bg-white shadow-xl space-y-4 rounded-b-[20px]">
+                    <div class="p-4 bg-white shadow-xl space-y-4 rounded-b-[20px]">
                         <div class="flex ">
                             <a href="{{ route('user-product') }}">
                                 <div>
@@ -59,7 +59,7 @@
                     </div>
                     <div class="space-y-2">
                         <h1 class='text-black text-base font-light'>*Discount</h1>
-                        <select name="discount_id" class='border p-2 w-full bg-gray-50 rounded-lg'>
+                        <select name="discount_id" class='border p-2 w-full bg-gray-50 rounded-lg border-gray-300'>
                             <option value="">No Discount</option>
                             @foreach ($discount as $discount)
                                 <option value="{{ $discount->id ?? 'N/A'}}">{{ $discount->name ?? 'N/A'}}
@@ -70,7 +70,7 @@
                     </div>
                     <div class="space-y-2">
                         <h1 class="text-black text-base font-light">*Notes</h1>
-                        <textarea class="border p-2 w-full bg-gray-50 rounded-lg" name="notes" id="notes" cols="2" rows="2"
+                        <textarea class="border p-2 w-full bg-gray-50 rounded-lg border-gray-300" name="notes" id="notes" cols="2" rows="2"
                             placeholder="Add notes here">{{ $menu->notes ?? 'N/A'}}</textarea>
                     </div>
                 </div>

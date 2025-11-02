@@ -21,7 +21,8 @@
                 <div class="p-3">
                     <div class="flex justify-between">
                         <h1 class="font-extrabold text-3xl">Category</h1>
-                        <a class="p-2 px-8 bg-green-500 rounded-lg text-white hover:text-black text-center" href="{{ route('addcategory') }}">+ Add</a>
+                        <a class="p-2 px-8 bg-green-500 rounded-lg text-white hover:text-black text-center"
+                            href="{{ route('addcategory') }}">+ Add</a>
                     </div>
                 </div>
                 <div class="p-2">
@@ -41,7 +42,7 @@
                                     <tr class="border-2">
                                         <td>{{ $no++ }}</td>
                                         <td>{{ $item->created_at ?? 'N/A' }}</td>
-                                        <td>{{ $item->name ?? 'N/A'}}</td>
+                                        <td>{{ $item->name ?? 'N/A' }}</td>
                                         <td class="flex gap-2">
                                             <div class="w-full">
                                                 <a href="{{ route('editcategory', ['id' => $item->id]) }}">
@@ -90,4 +91,5 @@
     @include('sweetalert::alert')
 
 </body>
+
 </html>

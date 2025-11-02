@@ -18,7 +18,7 @@
       @include('layout.navbar')
       <!-- end Navbar -->
       <div class="p-5">
-        <div class="w-full rounded-lg bg-white h-fit mx-auto">
+        <div class="w-full rounded-lg bg-white mx-auto">
           <div class="p-8">
             <div class="space-y-8">
               <div class="mx-auto text-center">
