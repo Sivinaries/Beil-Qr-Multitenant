@@ -13,7 +13,6 @@ return new class extends Migration
             $table->foreignId('store_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('cart_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->string('no_order')->nullable(); 
-            $table->string('cabang')->nullable(); 
             $table->string('atas_nama')->nullable(); 
             $table->string('status')->nullable(); 
             $table->string('layanan')->nullable(); 

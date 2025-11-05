@@ -222,7 +222,6 @@ class OrderController extends Controller
             $history->id = $order->id;
             $history->store_id = $store->id;
             $history->no_order = $order->no_order;
-            $history->kursi = $order->cart->user->name;
             $history->name = $order->atas_nama;
 
             $orderDetails = '';
@@ -255,7 +254,8 @@ class OrderController extends Controller
             $order->cart->delete();
             $order->delete();
 
-            Cache::forget('settlements_user_' . Auth::id());
+            Cache::forget('settlements');
+            Cache::forget('histories');
         });
 
         return redirect()->back()->with('success', 'Order archived successfully');

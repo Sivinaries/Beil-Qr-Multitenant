@@ -10,7 +10,6 @@ class Histoy extends Model
     use HasFactory;
     protected $fillable = [
         'store_id',
-        'kursi',
         'name',
         'no_order',
         'order',

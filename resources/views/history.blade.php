@@ -53,7 +53,6 @@
                                 <th>Date</th>
                                 <th>Order Id</th>
                                 <th>Nama</th>
-                                <th>Chair</th>
                                 <th>Order</th>
                                 <th>Payment</th>
                                 <th>Total</th>
@@ -69,7 +68,6 @@
                                         <td>{{ $item->created_at ?? 'N/A'}}</td>
                                         <td>{{ $item->no_order ?? 'N/A'}}</td>
                                         <td>{{ $item->name ?? 'N/A'}}</td>
-                                        <td>{{ $item->kursi ?? 'N/A'}}</td>
                                         <td>
                                             @php
                                                 $orders = explode(' - ', $item->order ?? 'N/A');

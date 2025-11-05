@@ -14,7 +14,6 @@ class Order extends Model
         'cart_id',
         'no_order',
         'status',
-        'cabang',
         'layanan',
         'payment_type',
         'atas_nama',

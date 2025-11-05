@@ -31,38 +31,34 @@
                                 <h1 class="text-base md:text-xl font-light">Email:</h1>
                                 <h1 class="text-base md:text-xl font-bold">{{ auth()->user()->email }}</h1>
                             </div>
-                            <div class="flex justify-between">
-                                <h1 class="text-base md:text-xl font-light">Level:</h1>
-                                <h1 class="text-base md:text-xl font-bold">{{ auth()->user()->level }}</h1>
+                        </div>
+                    </div>
+                    <!-- Store Information -->
+                    <div>
+                        <div class="p-2.5">
+                            <div class="">
+                                <h1 class="font-extrabold text-3xl">Store</h1>
+                            </div>
+                        </div>
+                        <div class="p-2">
+                            <div class="p-2 space-y-4">
+                                <div class="flex justify-between">
+                                    <h1 class="text-base md:text-xl font-light">Name:</h1>
+                                    <h1 class="text-base md:text-xl font-bold">{{ $userStore->store }}</h1>
+                                </div>
+                                <div class="flex justify-between">
+                                    <h1 class="text-base md:text-xl font-light">Address:</h1>
+                                    <h1 class="text-base md:text-xl font-bold">{{ $userStore->location }}</h1>
+                                </div>
+
+                                <div id="map" class="w-full h-64 rounded-lg z-10"></div>
+
+                                <div class="w-full p-4 bg-blue-500 rounded-lg text-center">
+                                    <a class=" text-white hover:text-black text-center" href="">Edit store</a>
+                                </div>
                             </div>
                         </div>
                     </div>
-<!-- Store Information -->
-<div>
-    <div class="p-2.5">
-        <div class="">
-            <h1 class="font-extrabold text-3xl">Store</h1>
-        </div>
-    </div>
-    <div class="p-2">
-        <div class="p-2 space-y-4">
-            <div class="flex justify-between">
-                <h1 class="text-base md:text-xl font-light">Name:</h1>
-                <h1 class="text-base md:text-xl font-bold">{{ $userStore->store }}</h1>
-            </div>
-            <div class="flex justify-between">
-                <h1 class="text-base md:text-xl font-light">Address:</h1>
-                <h1 class="text-base md:text-xl font-bold">{{ $userStore->location }}</h1>
-            </div>
-
-            <div id="map" class="w-full h-64 rounded-lg z-10"></div>
-
-            <div class="w-full p-4 bg-blue-500 rounded-lg text-center">
-                <a class=" text-white hover:text-black text-center" href="">Edit store</a>
-            </div>
-        </div>
-    </div>
-</div>
                 </div>
             </div>
         </div>

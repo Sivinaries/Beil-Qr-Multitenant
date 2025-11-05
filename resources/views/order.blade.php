@@ -34,12 +34,11 @@
                                 <th>Date</th>
                                 <th>Id</th>
                                 <th>Layanan</th>
-                                <th>User</th>
+                                <th>Name</th>
                                 <th>Chair</th>
                                 <th>Order</th>
                                 <th>Payment</th>
                                 <th>Total</th>
-                                <th>Tujuan</th>
                                 <th>Status</th>
                                 <th>Action</th>
                             </thead>
@@ -53,7 +52,7 @@
                                         <td>{{ $order->created_at ?? 'N/A' }}</td>
                                         <td>{{ $order->no_order ?? 'N/A' }}</td>
                                         <td>{{ $order->layanan ?? 'N/A' }}</td>
-                                        <td>{{ $order->cart->user->name ?? 'N/A' }}</td>
+                                        <td>{{ $order->atas_nama ?? 'N/A' }}</td>
                                         <td>{{ $order->cart->chair->name ?? 'N/A' }}</td>
                                         <td>
                                             @if ($order->cart->cartMenus)
@@ -70,7 +69,6 @@
                                         <td>
                                             Rp. {{ number_format($order->cart->total_amount ?? 0, 0, ',', '.') }}
                                         </td>
-                                        <td>{{ $order->alamat ?? 'N/A' }}</td>
                                         <td>{{ $order->status ?? 'Unknown' }}</td>
                                         <td class="flex gap-2">
                                             <div class="w-full">

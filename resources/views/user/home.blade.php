@@ -95,9 +95,9 @@
                         <div class="slider-wrapper">
                             @foreach ($showcase as $item)
                                 <div class="slider-slide">
-                                    <div class="w-full h-56">
+                                    <div class="w-full h-44 rounded-lg">
                                         <img src="{{ asset('storage/img/' . basename($item['img'])) }}"
-                                            alt="Showcase Image" class="w-full object-cover rounded-md">
+                                            alt="Showcase Image" class="w-full object-fill rounded-lg">
                                     </div>
                                 </div>
                             @endforeach

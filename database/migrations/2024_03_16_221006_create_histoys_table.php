@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('histoys', function (Blueprint $table) {
             $table->id();
             $table->foreignId('store_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
-            $table->string('kursi');
             $table->string('name');
             $table->string('no_order')->nullable(); 
             $table->string('order');
