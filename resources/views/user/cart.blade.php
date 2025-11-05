@@ -67,12 +67,12 @@
                         </div>
                         <div class="space-y-6">
                             <div class="flex gap-2">
-                                <h1 class="font-bold">{{ $item->quantity ?? 'N/A'}}</h1>
+                                <h1 class="font-bold">{{ $item->quantity }}</h1>
                                 <h1>X</h1>
-                                <h1 class="font-bold">{{ $item->menu->name ?? 'N/A'}}</h1>
+                                <h1 class="font-bold">{{ $item->menu->name }}</h1>
                             </div>
                             <div>
-                                <h1>-{{ $item->menu->notes ?? 'N/A'}}</h1>
+                                <h1>-{{ $item->menu->notes }}</h1>
                             </div>
                             <div class="flex gap-16">
                                 <h1 class="font-semibold text-lg">Subtotal</h1>

@@ -45,14 +45,14 @@
                                 @foreach ($orders as $order)
                                     <tr class="border-2">
                                         <td>{{ $no++ }}</td>
-                                        <td>{{ $order->atas_nama ?? 'N/A'}}</td>
+                                        <td>{{ $order->atas_nama }}</td>
                                         <td>
                                             @foreach ($order->cart->cartMenus as $cartMenu)
-                                                {{ $cartMenu->menu->name ?? 'N/A'}} - {{ $cartMenu->quantity ?? 'N/A'}} -
-                                                {{ $cartMenu->notes ?? 'N/A' }} <br />
+                                                {{ $cartMenu->menu->name }} - {{ $cartMenu->quantity }} -
+                                                {{ $cartMenu->notes }} <br />
                                             @endforeach
                                         </td>
-                                        <td>{{ $order->status ?? 'N/A'}}</td>
+                                        <td>{{ $order->status }}</td>
                                     </tr>
                                 @endforeach
                             </tbody>
