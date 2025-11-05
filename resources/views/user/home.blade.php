@@ -64,7 +64,7 @@
                         </div>
                         <div>
                             <div class="my-auto">
-                                <h1 class="text-sm text-white font-light line-clamp-1">{{ $store->location }}
+                                <h1 class="text-sm text-white font-light line-clamp-2">{{ $store->location }}
                                 </h1>
                             </div>
                         </div>
@@ -95,7 +95,7 @@
                         <div class="slider-wrapper">
                             @foreach ($showcase as $item)
                                 <div class="slider-slide">
-                                    <div class="w-full h-40">
+                                    <div class="w-full h-56">
                                         <img src="{{ asset('storage/img/' . basename($item['img'])) }}"
                                             alt="Showcase Image" class="w-full object-cover rounded-md">
                                     </div>
@@ -104,50 +104,38 @@
                         </div>
                     </div>
 
-                    @auth
-                        <div class="grid grid-cols-4 gap-6">
-                            <a href="{{ route('user-product') }}">
-                                <div class="p-1 border rounded-lg bg-red-900 shadow-xl">
-                                    <div class="mx-auto w-6 h-12">
-                                        <img class="w-full h-full" src="{{ asset('/img/menu.svg') }}" alt="Menu">
-                                    </div>
+                    <div class="grid grid-cols-3 gap-6">
+                        <a href="{{ route('user-product') }}">
+                            <div class="p-1 border rounded-lg bg-red-900 shadow-xl">
+                                <div class="mx-auto w-6 h-12">
+                                    <img class="w-full h-full" src="{{ asset('/img/menu.svg') }}" alt="Menu">
                                 </div>
-                                <div>
-                                    <h1 class="text-base font-light text-black text-center">Product</h1>
+                            </div>
+                            <div>
+                                <h1 class="text-base font-light text-black text-center">Product</h1>
+                            </div>
+                        </a>
+                        <a href="{{ route('user-antrian') }}">
+                            <div class="p-1 border rounded-lg bg-red-900 shadow-xl">
+                                <div class="mx-auto w-6 h-12">
+                                    <img class="w-full h-full" src="{{ asset('/img/antrian.svg') }}" alt="Entry">
                                 </div>
-                            </a>
-                            <a href="{{ route('user-antrian') }}">
-                                <div class="p-1 border rounded-lg bg-red-900 shadow-xl">
-                                    <div class="mx-auto w-6 h-12">
-                                        <img class="w-full h-full" src="{{ asset('/img/antrian.svg') }}" alt="Entry">
-                                    </div>
+                            </div>
+                            <div>
+                                <h1 class="text-base font-light text-black text-center">Entry</h1>
+                            </div>
+                        </a>
+                        <a href="{{ route('user-akun') }}">
+                            <div class="p-1 border rounded-lg bg-red-900 shadow-xl">
+                                <div class="mx-auto w-6 h-12">
+                                    <img class="w-full h-full" src="{{ asset('/img/profil.svg') }}" alt="Account">
                                 </div>
-                                <div>
-                                    <h1 class="text-base font-light text-black text-center">Entry</h1>
-                                </div>
-                            </a>
-                            <a href="{{ route('user-game') }}">
-                                <div class="p-1 border rounded-lg bg-red-900 shadow-xl">
-                                    <div class="mx-auto w-6 h-12">
-                                        <img class="w-full h-full" src="{{ asset('/img/games.svg') }}" alt="Games">
-                                    </div>
-                                </div>
-                                <div>
-                                    <h1 class="text-base font-light text-black text-center">Games</h1>
-                                </div>
-                            </a>
-                            <a href="{{ route('user-akun') }}">
-                                <div class="p-1 border rounded-lg bg-red-900 shadow-xl">
-                                    <div class="mx-auto w-6 h-12">
-                                        <img class="w-full h-full" src="{{ asset('/img/profil.svg') }}" alt="Account">
-                                    </div>
-                                </div>
-                                <div>
-                                    <h1 class="text-base font-light text-black text-center">Akun</h1>
-                                </div>
-                            </a>
-                        </div>
-                    @endauth
+                            </div>
+                            <div>
+                                <h1 class="text-base font-light text-black text-center">Akun</h1>
+                            </div>
+                        </a>
+                    </div>
 
                     <div class="grid grid-cols-2 gap-2">
                         @foreach ($menus as $menu)
@@ -155,7 +143,7 @@
                                 <div class="bg-red-800 p-2 rounded-md space-y-1">
                                     <div class="p-2 bg-white rounded-md">
                                         <img src="{{ asset('storage/img/' . basename($menu->img)) }}"
-                                            alt="Product Image" class="mx-auto my-auto w-14 h-17 rounded-lg relative" />
+                                            alt="Product Image" class="mx-auto my-auto w-10 h-17 rounded-lg relative" />
                                     </div>
                                     <div>
                                         <h1 class="text-white text-sm font-bold">{{ $menu->name }}</h1>
@@ -167,14 +155,19 @@
                         @endforeach
                     </div>
 
-                    <!-- Pagination Links -->
-                    <div class="mt-4">
-                        {{ $menus->links() }}
-                    </div>
                 </div>
+
             </div>
         </div>
     </div>
+    <!-- ✅ Footer -->
+<div class="p-4">
+    <div class="flex gap-2 justify-start ">
+        <h1 class="text-black text-sm my-auto">Powered by</h1>
+        <img class="w-12 h-8" src="{{ asset('beil.svg') }}" alt="beil">
+    </div>
+</div>
+
 </body>
 
 </html>

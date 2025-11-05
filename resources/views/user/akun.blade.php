@@ -29,23 +29,9 @@
             {{-- BODY --}}
             <div class="p-4 space-y-4">
                 <div class="space-y-2">
-                    <h1><span class="text-red-500">*</span> Detail Akun</h1>
-                    <p class="text-xs">Data mohon dilengkapi.</p>
-                </div>
-                <div class="space-y-2">
                     <h1><span class="text-red-500">*</span> Nama</h1>
                     <input class="border w-full rounded-lg p-2" type="text" id="layanan" name="layanan"
                         value="{{ $chair->name }}" readonly>
-                </div>
-                <div class="space-y-2">
-                    <h1><span class="text-red-500">*</span> Email</h1>
-                    <input class="border w-full rounded-lg p-2" type="text" name="cabang"
-                        value="{{ $chair->email }}" readonly>
-                </div>
-                <div class="space-y-2">
-                    <h1><span class="text-red-500">*</span> Nomor Ponsel</h1>
-                    <input class="border w-full rounded-lg p-2" id="no_telpon" name="no_telpon"
-                        value="{{ $chair->no_telpon }}" readonly>
                 </div>
             </div>
         </div>

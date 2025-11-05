@@ -153,6 +153,5 @@ Route::middleware('auth:chair')->group(function () {
     Route::post('/user/postorder', [CustomerController::class, 'postorder'])->name('user-postorder');
     Route::get('/user/serve', [CustomerController::class, 'serve'])->name('user-serve');
     Route::get('/user/antrian', [CustomerController::class, 'antrian'])->name('user-antrian');
-    Route::get('/user/game', [CustomerController::class, 'game'])->name('user-game');
     Route::get('/user/akun', [CustomerController::class, 'akun'])->name('user-akun');
 });

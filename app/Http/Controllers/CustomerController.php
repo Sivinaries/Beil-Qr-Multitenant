@@ -23,7 +23,7 @@ class CustomerController extends Controller
 
         $storeKey = 'stores';
         $showKey = 'showcases';
-        $menusKey = 'menus'; // Cache key for menus
+        $menusKey = 'menus'; 
 
         $store = Cache::remember($storeKey, now()->addMinutes(60), function () use ($chairStore) {
             return $chairStore;
@@ -34,7 +34,7 @@ class CustomerController extends Controller
         });
 
         $menus = Cache::remember($menusKey, now()->addMinutes(60), function () use ($chairStore) {
-            return $chairStore->menus()->select('id', 'name', 'price', 'img')->paginate(10);
+            return $chairStore->menus()->select('id', 'name', 'price', 'img')->get();
         });
 
         return view('user.home', compact('store', 'menus', 'showcase'));
@@ -339,11 +339,6 @@ class CustomerController extends Controller
         }
 
         return view('user.antrian', compact('orders', 'statuses'));
-    }
-
-    public function game()
-    {
-        return view('user.game');
     }
 
     public function akun()
