@@ -45,7 +45,7 @@
                                             <td>{{ $item->created_at ?? 'N/A' }}</td>
                                             <td>{{ $item->name ?? 'N/A' }}</td>
                                             <td>
-                                                <img src="{{ asset('storage/img/' . basename($item->img)) }}"
+                                                <img src="{{ asset('storage/img/' . basename($item['img'])) }}"
                                                     alt="Product Image" class='mx-auto w-20 h-32 my-auto rounded-lg' />
                                             </td>
                                             <td>Rp. {{ number_format($item->price, 0, ',', '.') ?? 'N/A' }}</td>
