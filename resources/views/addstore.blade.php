@@ -38,7 +38,7 @@
                                     <label class="font-semibold text-black">Name:</label>
                                     <input type="text"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 p-2 rounded-lg w-full"
-                                        id="name" name="name" placeholder="John Doe" value="{{ old('name') }}"
+                                        id="name" name="name" value="{{ old('name') }}"
                                         required />
                                     @error('name')
                                         <div class="text-red-500 text-sm">{{ $message }}</div>
@@ -48,7 +48,7 @@
                                     <label class="font-semibold text-black">Nomor Whatsapp:</label>
                                     <input type="text"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 p-2 rounded-lg w-full"
-                                        id="no_telpon" name="no_telpon" placeholder="08XXXXXXXXX"
+                                        id="no_telpon" name="no_telpon" 
                                         value="{{ old('no_telpon') }}" required />
                                     @error('no_telpon')
                                         <div class="text-red-500 text-sm">{{ $message }}</div>
@@ -74,7 +74,7 @@
                                     <label class="font-semibold text-black">Atas Nama:</label>
                                     <input type="text"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 p-2 rounded-lg w-full"
-                                        id="atas_nama" name="atas_nama" placeholder="John Doe"
+                                        id="atas_nama" name="atas_nama"
                                         value="{{ old('atas_nama') }}" required />
                                     @error('atas_nama')
                                         <div class="text-red-500 text-sm">{{ $message }}</div>
@@ -84,7 +84,7 @@
                                     <label class="font-semibold text-black">Bank:</label>
                                     <input type="text"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 p-2 rounded-lg w-full"
-                                        id="bank" name="bank" placeholder="BCX" value="{{ old('bank') }}"
+                                        id="bank" name="bank" value="{{ old('bank') }}"
                                         required />
                                     @error('bank')
                                         <div class="text-red-500 text-sm">{{ $message }}</div>
@@ -94,7 +94,7 @@
                                     <label class="font-semibold text-black">No Rekening:</label>
                                     <input type="number"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 p-2 rounded-lg w-full"
-                                        id="no_rek" name="no_rek" placeholder="462XXXXXX"
+                                        id="no_rek" name="no_rek"
                                         value="{{ old('no_rek') }}" required>
                                     @error('no_rek')
                                         <div class="text-red-500 text-sm">{{ $message }}</div>
@@ -111,7 +111,7 @@
                                     <label class="font-semibold text-black">Store:</label>
                                     <input type="text"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 p-2 rounded-lg w-full"
-                                        id="store" name="store" placeholder="Event" value="{{ old('event') }}"
+                                        id="store" name="store" value="{{ old('store') }}"
                                         required />
                                     @error('event')
                                         <div class="text-red-500 text-sm">{{ $message }}</div>
@@ -124,9 +124,9 @@
                                 <label class="font-semibold text-black">Location:</label>
                                 <input type="text"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 p-2 rounded-lg w-full"
-                                    id="location" name="location" placeholder="Selected Location"
+                                    id="location" name="location" 
                                     value="{{ old('location') }}" required readonly />
-                                <input type="text" id="searchLocation" placeholder="Search location"
+                                <input type="text" id="searchLocation" 
                                     class="bg-gray-50 border border-gray-300 text-gray-900 p-2 rounded-lg w-full" />
                                 <div class="flex gap-2">
                                     <button type="button" id="searchBtn"

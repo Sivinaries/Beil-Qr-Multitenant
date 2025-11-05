@@ -28,7 +28,7 @@
                             <label class="font-semibold text-black">Total Amount:</label>
                             <input type="number"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 p-2 rounded-lg w-full"
-                                id="total_amount" name="total_amount" placeholder="Total Amount" required />
+                                id="total_amount" name="total_amount" required />
                         </div>
                         <button id="submitBtn" type="submit"
                             class="bg-blue-500 text-white p-4 w-full hover:text-black rounded-lg">

@@ -27,9 +27,9 @@
                             </h1>
                         </div>
                         <div>
-                        <a class="p-2 px-8 bg-green-500 rounded-lg text-white hover:text-black text-center"
-                            href="{{ route('addwithdraw') }}">+ Add</a>
-                            </div>
+                            <a class="p-2 px-8 bg-green-500 rounded-lg text-white hover:text-black text-center"
+                                href="{{ route('addwithdraw') }}">+ Add</a>
+                        </div>
                     </div>
                 </div>
                 <div class="p-2">
@@ -52,6 +52,7 @@
                                         <td>{{ $no++ }}</td>
                                         <td>{{ $item->created_at ?? 'N/A' }}</td>
                                         <td>{{ $item->name ?? 'N/A' }}</td>
+                                        <td>{{ $item->payment_type ?? 'N/A' }}</td>
                                         <td>Rp. {{ number_format($item->amount, 0, ',', '.') ?? 'N/A' }} </td>
                                         <td class="flex gap-2">
                                             <div class="w-full">

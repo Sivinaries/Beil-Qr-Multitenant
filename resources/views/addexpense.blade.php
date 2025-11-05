@@ -29,13 +29,13 @@
                             <label class="font-semibold text-black">Nama:</label>
                             <input type="text"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 p-2 rounded-lg w-full"
-                                id="name" name="name" placeholder="Operational" required />
+                                id="name" name="name" required />
                         </div>
                         <div class="space-y-2">
                             <label class="font-semibold text-black">Nominal:</label>
                             <input type="number"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 p-2 rounded-lg w-full"
-                                id="nominal" name="nominal" placeholder="Nominal" required />
+                                id="nominal" name="nominal" required />
                         </div>
                         <button id="submitBtn" type="submit" class="bg-blue-500 text-white p-4 w-full hover:text-black rounded-lg">
                             Submit

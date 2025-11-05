@@ -29,7 +29,7 @@
                             <label class="font-semibold text-black">Nama:</label>
                             <input type="text"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 p-2 rounded-lg w-full"
-                                id="name" name="name" placeholder="Soft Opening" required />
+                                id="name" name="name" required />
                         </div>
                         <div class="space-y-2">
                             <label class="font-semibold text-black">Percentage:</label>

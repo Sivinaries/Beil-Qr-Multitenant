@@ -25,11 +25,11 @@ class ProductController extends Controller
     
         $cacheKey = 'menus_user_' . Auth::id();
         
-        $menus = Cache::remember($cacheKey, now()->addMinutes(60), function () use ($userStore) {
+        $menu = Cache::remember($cacheKey, now()->addMinutes(60), function () use ($userStore) {
             return $userStore->menus; 
         });
     
-        return view('product', compact('menus'));
+        return view('product', compact('menu'));
     }
     
     public function create()

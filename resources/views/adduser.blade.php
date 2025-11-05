@@ -29,25 +29,25 @@
                             <label class="font-semibold text-black">Nama:</label>
                             <input type="text"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 p-2 rounded-lg w-full"
-                                id="name" name="name" placeholder="Nama" required>
+                                id="name" name="name" required>
                         </div>
                         <div class="space-y-2">
                             <label class="font-semibold text-black">Email:</label>
                             <input type="email"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 p-2 rounded-lg w-full"
-                                id="email" name="email" placeholder="Email" required>
+                                id="email" name="email" required>
                         </div>
                         <div class="space-y-2">
                             <label class="font-semibold text-black">Password:</label>
                             <input type="password"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 p-2 rounded-lg w-full"
-                                id="password" name="password" placeholder="Password" required>
+                                id="password" name="password" required>
                         </div>
                         <div class="space-y-2">
                             <label class="font-semibold text-black">Password Confirmation:</label>
                             <input type="password"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 p-2 rounded-lg w-full"
-                                id="password" name="password_confirmation" placeholder="Password Confirmation" required>
+                                id="password" name="password_confirmation" required>
                         </div>
                         <button id="submitBtn" type="submit" class="bg-blue-500  text-white p-4 w-full hover:text-black rounded-lg">Submit</button>
                     </form>

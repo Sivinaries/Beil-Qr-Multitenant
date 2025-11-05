@@ -29,7 +29,7 @@
                             <label class="font-semibold text-black">Start Amount:</label>
                             <input type="number"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 p-2 rounded-lg w-full"
-                                id="start_amount" name="start_amount" placeholder="Start Amount" required />
+                                id="start_amount" name="start_amount" required />
                         </div>
                         <button id="submitBtn" type="submit" class="bg-blue-500 text-white p-4 w-full hover:text-black rounded-lg">
                             Submit

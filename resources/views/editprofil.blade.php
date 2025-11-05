@@ -48,7 +48,7 @@
                         <div id="mapContainer" class="space-y-2">
                             <label class="font-semibold text-black">Alamat:</label>
                             <input type="text" id="locationInput" class="bg-gray-50 border border-gray-300 text-gray-900 p-2 rounded-lg w-full" name="alamat"
-                                placeholder="Selected Location" value="{{ $profil->alamat }}" readonly />
+                                value="{{ $profil->alamat }}" readonly />
                             <div class="z-10" id="map"></div>
                             <button onclick="getLocation(event)"
                                 class="bg-blue-500 w-full p-4 text-white hover:text-black rounded-lg">

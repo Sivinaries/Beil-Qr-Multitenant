@@ -41,7 +41,7 @@
                                 </div>
                                 <div class="">
                                     <h1 class="text-black text-2xl font-bold">Rp.
-                                        {{ number_format($menu->price, 0, ',', '.') ?? 'N/A'}}
+                                        {{ number_format($menu->price, 0, ',', '.') ?? 'N/A' }}
                                     </h1>
                                 </div>
                             </div>
@@ -52,35 +52,35 @@
                             class='mx-auto my-auto w-full h-full' />
                     </div>
                     <div class="">
-                        <h1 class="text-black text-4xl font-extrabold">{{ $menu->name ?? 'N/A'}}</h1>
+                        <h1 class="text-black text-4xl font-extrabold">{{ $menu->name ?? 'N/A' }}</h1>
                     </div>
                     <div class="">
-                        <h1 class="text-black text-sm font-light">{{ $menu->description ?? 'N/A'}}</h1>
+                        <h1 class="text-black text-sm font-light">{{ $menu->description ?? 'N/A' }}</h1>
                     </div>
                     <div class="space-y-2">
                         <h1 class='text-black text-base font-light'>*Discount</h1>
                         <select name="discount_id" class='border p-2 w-full bg-gray-50 rounded-lg border-gray-300'>
                             <option value="">No Discount</option>
                             @foreach ($discount as $discount)
-                                <option value="{{ $discount->id ?? 'N/A'}}">{{ $discount->name ?? 'N/A'}}
-                                    ({{ $discount->percentage ?? 'N/A'}}%)
+                                <option value="{{ $discount->id ?? 'N/A' }}">{{ $discount->name ?? 'N/A' }}
+                                    ({{ $discount->percentage ?? 'N/A' }}%)
                                 </option>
                             @endforeach
                         </select>
                     </div>
                     <div class="space-y-2">
                         <h1 class="text-black text-base font-light">*Notes</h1>
-                        <textarea class="border p-2 w-full bg-gray-50 rounded-lg border-gray-300" name="notes" id="notes" cols="2" rows="2"
-                            placeholder="Add notes here">{{ $menu->notes ?? 'N/A'}}</textarea>
+                        <textarea class="border p-2 w-full bg-gray-50 rounded-lg border-gray-300" name="notes" id="notes" cols="2"
+                            rows="2">{{ $menu->notes ?? 'N/A' }}</textarea>
                     </div>
                 </div>
 
                 {{-- FOOTER --}}
                 <div class="h-20">
 
-</div>
+                </div>
 
-<div class="w-full fixed bottom-4 max-w-sm mx-auto p-1">
+                <div class="w-full fixed bottom-4 max-w-sm mx-auto p-1">
                     <div class='grid grid-cols-2 w-full'>
                         <div class=''>
                             <div class='flex items-center justify-center gap-4'>

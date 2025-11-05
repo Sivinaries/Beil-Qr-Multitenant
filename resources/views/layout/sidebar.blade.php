@@ -41,10 +41,10 @@
                             <a class="" href="{{ route('dashboard') }}">
                                 <div class="flex space-x-4">
                                     <div class="bg-red-600 p-2 rounded-lg">
-                                        <i class="fa-solid fa-house"></i>
+                                        <i class="material-icons text-white">home</i>
                                     </div>
                                     <div class="my-auto">
-                                        <h1 class="text-gray-500 hover:text-black text-base font-normal">Home</h1>
+                                        <h1 class="text-gray-500 hover:text-black text-base font-normal">Dashboard</h1>
                                     </div>
                                 </div>
                             </a>
@@ -150,19 +150,20 @@
                         </li>
                     @endif
                     <hr class="mx-5 shadow-2xl text-gray-100 rounded-r-lg rounded-l-lg" />
-                    <li class="p-4 mx-2">
-                        <a class="" href="{{ route('bot') }}">
-                            <div class="flex space-x-4">
-                                <div class="bg-red-600 p-2 rounded-lg">
-                                    <i class="material-icons text-white">support_agent</i>
+                    @if (auth()->user()->level == 'User')
+                        <li class="p-4 mx-2">
+                            <a class="" href="{{ route('bot') }}">
+                                <div class="flex space-x-4">
+                                    <div class="bg-red-600 p-2 rounded-lg">
+                                        <i class="material-icons text-white">support_agent</i>
+                                    </div>
+                                    <div class="my-auto">
+                                        <h1 class="text-gray-500 hover:text-black text-base font-normal">Support</h1>
+                                    </div>
                                 </div>
-                                <div class="my-auto">
-                                    <h1 class="text-gray-500 hover:text-black text-base font-normal">Support</h1>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-
+                            </a>
+                        </li>
+                    @endif
                     <li class="p-4 mx-2">
                         <form class="" action="{{ route('logout') }}" method="POST">
                             @csrf

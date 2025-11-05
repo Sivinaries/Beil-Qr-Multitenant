@@ -31,13 +31,13 @@
                                 <label class="font-semibold text-black">Nama produk:</label>
                                 <input type="text"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 p-2 rounded-lg w-full"
-                                    id="name" name="name" placeholder="Coffe" required>
+                                    id="name" name="name" required>
                             </div>
                             <div class="space-y-2">
                                 <label class="font-semibold text-black">Harga produk:</label>
                                 <input type="number"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 p-2 rounded-lg w-full"
-                                    id="price" name="price" placeholder="1000000" required>
+                                    id="price" name="price" required>
                             </div>
                             <div class="space-y-2">
                                 <label class="font-semibold text-black">Kategori:</label>
@@ -54,7 +54,7 @@
                         <div class="space-y-2">
                             <label class="font-semibold text-black">Deskripsi produk:</label>
                             <textarea class="bg-gray-50 border border-gray-300 text-gray-900 p-2 rounded-lg w-full" id="description"
-                                name="description" placeholder="Description produk" required></textarea>
+                                name="description" required></textarea>
                             <p class="text-gray-500 text-right"><span id="charCount"></span>/200 characters</p>
                         </div>
                         <div class="space-y-2">

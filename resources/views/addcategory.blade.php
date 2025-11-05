@@ -27,7 +27,7 @@
                             <label class="font-semibold text-black">Category:</label>
                             <input type="text"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 p-2 rounded-lg w-full"
-                                id="name" name="name" placeholder="Coffee" required />
+                                id="name" name="name" required />
                         </div>
                         <button id="submitBtn" type="submit"
                             class="bg-blue-500 text-white p-4 w-full hover:text-black rounded-lg transition-all">

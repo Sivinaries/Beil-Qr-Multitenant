@@ -70,13 +70,13 @@
                     
                     <div class="space-y-2">
                         <h1><span class="text-red-500">*</span> Atas Nama</h1>
-                        <input class="border w-full rounded-lg p-2 border-gray-300" placeholder="John Doe" id="atas_nama" type="text"
+                        <input class="border w-full rounded-lg p-2 border-gray-300" id="atas_nama" type="text"
                             name="atas_nama">
                     </div>
 
                     <div class="space-y-2">
                         <h1><span class="text-red-500">*</span> Nomor Ponsel</h1>
-                        <input class="border w-full rounded-lg p-2 border-gray-300" placeholder="08XXXXXXXX" id="no_telpon"
+                        <input class="border w-full rounded-lg p-2 border-gray-300" id="no_telpon"
                             name="no_telpon">
                     </div>
 

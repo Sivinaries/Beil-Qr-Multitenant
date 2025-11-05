@@ -70,7 +70,7 @@
                                         </div>
                                         <div>
                                             <p class='w-full text-xl font-medium rounded-lg p-2'>*Notes</p>
-                                            <textarea name="notes" class='border p-2 w-full bg-gray-50 rounded-lg' placeholder='Add Notes Here'>{{ $menu->notes }}</textarea>
+                                            <textarea name="notes" class='border p-2 w-full bg-gray-50 rounded-lg'>{{ $menu->notes }}</textarea>
                                             </textarea>
                                         </div>
                                     </div>

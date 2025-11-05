@@ -128,7 +128,7 @@ Route::middleware('auth:web')->group(function () {
     Route::get('/withdraw', [WithdrawController::class, 'index'])->name('withdraw');
     Route::get('/addwithdraw', [WithdrawController::class, 'create'])->name('addwithdraw');
     Route::post('/postwithdraw', [WithdrawController::class, 'store'])->name('postwithdraw');
-    Route::delete('/expense/{id}/show', [WithdrawController::class, 'show'])->name('showwithdraw');
+    Route::get('/withdraw/{id}/show', [WithdrawController::class, 'show'])->name('showwithdraw');
 
     //QR CONTROLLER
     Route::get('/login/qr/{id}', [QrController::class, 'LoginQr'])->name('login-qr');
