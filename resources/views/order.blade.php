@@ -35,7 +35,7 @@
                                 <th>Id</th>
                                 <th>Layanan</th>
                                 <th>Name</th>
-                                <th>Chair</th>
+                                <th>Code</th>
                                 <th>Order</th>
                                 <th>Payment</th>
                                 <th>Total</th>
