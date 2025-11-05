@@ -20,7 +20,7 @@ class ExpenseController extends Controller
             return redirect()->route('addstore');
         }
 
-        $cacheKey = 'expenses_user_' . Auth::id();
+        $cacheKey = 'expenses';
 
         $expenses = Cache::remember($cacheKey, now()->addMinutes(60), function () use ($userStore) {
             return $userStore->expenses;
@@ -47,7 +47,7 @@ class ExpenseController extends Controller
 
         Expense::create($data);
 
-        Cache::forget('expenses_user_' . Auth::id());
+        Cache::forget('expenses');
 
         return redirect(route('expense'))->with('success', 'Expense Sukses Dibuat !');
     }
@@ -73,7 +73,7 @@ class ExpenseController extends Controller
 
         Expense::where('id', $id)->update($data);
 
-        Cache::forget('expenses_user_' . Auth::id());
+        Cache::forget('expenses');
 
         return redirect(route('expense'))->with('success', 'Expense Sukses Diupdate !');
     }
@@ -82,7 +82,7 @@ class ExpenseController extends Controller
     {
         Expense::destroy($id);
 
-        Cache::forget('expenses_user_' . Auth::id());
+        Cache::forget('expenses');
 
         return redirect(route('expense'))->with('success', 'Expense Berhasil Dihapus !');
     }

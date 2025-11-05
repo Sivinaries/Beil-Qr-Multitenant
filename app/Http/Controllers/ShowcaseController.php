@@ -21,7 +21,7 @@ class ShowcaseController extends Controller
             return redirect()->route('addstore');
         }
 
-        $cacheKey = 'showcases_user_' . Auth::id();
+        $cacheKey = 'showcases';
 
         $showcase = Cache::remember($cacheKey, now()->addMinutes(60), function () use ($userStore) {
             return $userStore->showcases;
@@ -55,7 +55,7 @@ class ShowcaseController extends Controller
 
         Showcase::create($data);
 
-        Cache::forget('showcases_user_' . Auth::id());
+        Cache::forget('showcases');
 
         return redirect(route('showcase'))->with('success', 'Showcase Sukses Dibuat !');
     }
@@ -89,7 +89,7 @@ class ShowcaseController extends Controller
 
         Showcase::where('id', $id)->update($data);
 
-        Cache::forget('showcases_user_' . Auth::id());
+        Cache::forget('showcases');
 
         return redirect(route('showcase'))->with('success', 'Showcase Sukses Diupdate !');
     }
@@ -98,7 +98,7 @@ class ShowcaseController extends Controller
     {
         Showcase::destroy($id);
 
-        Cache::forget('showcases_user_' . Auth::id());
+        Cache::forget('showcases');
 
         return redirect(route('showcase'))->with('success', 'Showcase Berhasil Dihapus !');
     }

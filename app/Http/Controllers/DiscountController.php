@@ -20,7 +20,7 @@ class DiscountController extends Controller
             return redirect()->route('addstore');
         }
 
-        $cacheKey = 'discounts_user_' . Auth::id();
+        $cacheKey = 'discounts';
 
         $discounts = Cache::remember($cacheKey, now()->addMinutes(60), function () use ($userStore) {
             return $userStore->discounts;
@@ -47,7 +47,7 @@ class DiscountController extends Controller
 
         Discount::create($data);
 
-        Cache::forget('discounts_user_' . Auth::id());
+        Cache::forget('discounts');
 
         return redirect(route('discount'))->with('success', 'Discount Sukses Dibuat !');
     }
@@ -73,7 +73,7 @@ class DiscountController extends Controller
 
         Discount::where('id', $id)->update($data);
 
-        Cache::forget('discounts_user_' . Auth::id());
+        Cache::forget('discounts');
 
         return redirect(route('discount'))->with('success', 'Discount Sukses Diupdate !');
     }
@@ -82,7 +82,7 @@ class DiscountController extends Controller
     {
         Discount::destroy($id);
 
-        Cache::forget('discounts_user_' . Auth::id());
+        Cache::forget('discounts');
 
         return redirect(route('discount'))->with('success', 'Discount Berhasil Dihapus !');
     }

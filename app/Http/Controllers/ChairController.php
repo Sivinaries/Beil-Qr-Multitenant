@@ -22,7 +22,7 @@ class ChairController extends Controller
             return redirect()->route('addstore');
         }
 
-        $cacheKey = 'chairs_user_' . Auth::id();
+        $cacheKey = 'chairs';
 
         $users = Cache::remember($cacheKey, 60, function () use ($userStore) {
             return $userStore->chairs()->where('level', 'Chair')->get();
@@ -62,7 +62,7 @@ class ChairController extends Controller
 
         Chair::create($data);
 
-        Cache::forget('chairs_user_' . Auth::id());
+        Cache::forget('chairs');
 
         return redirect('/chair')->with('toast_success', 'Registration successful!');
     }
@@ -71,7 +71,7 @@ class ChairController extends Controller
     {
         Chair::destroy($id);
 
-        Cache::forget('chairs_user_' . Auth::id());
+        Cache::forget('chairs');
 
         return redirect(route('chair'))->with('success', 'Kursi Berhasil Dihapus !');
     }

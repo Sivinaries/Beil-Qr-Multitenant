@@ -27,7 +27,7 @@ class WithdrawController extends Controller
             return redirect()->route('login');
         }
 
-        $cacheKey = 'withdraws_user_' . Auth::id();
+        $cacheKey = 'withdraws';
 
         $withdraws = Cache::remember($cacheKey, now()->addMinutes(60), function () use ($userStore) {
             return $userStore->withdraws;
@@ -62,7 +62,7 @@ class WithdrawController extends Controller
         Withdraw::create($data);
 
         // Hapus cache lama jika ada
-        Cache::forget('withdraws_user_' . Auth::id());
+        Cache::forget('withdraws');
 
         return redirect()->route('withdraw')->with('success', 'Withdraw successfully created!');
     }

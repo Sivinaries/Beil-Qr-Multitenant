@@ -23,7 +23,7 @@ class ProductController extends Controller
             return redirect()->route('addstore');
         }
     
-        $cacheKey = 'menus_user_' . Auth::id();
+        $cacheKey = 'menus';
         
         $menu = Cache::remember($cacheKey, now()->addMinutes(60), function () use ($userStore) {
             return $userStore->menus; 
@@ -64,7 +64,7 @@ class ProductController extends Controller
 
         Menu::create($data);
 
-        Cache::forget('menus_user_' . Auth::id());
+        Cache::forget('menus');
 
         return redirect(route('product'))->with('success', 'Product Sukses Dibuat !');
     }
@@ -116,7 +116,7 @@ class ProductController extends Controller
 
         Menu::where('id', $id)->update($menuData);
 
-        Cache::forget('menus_user_' . Auth::id());
+        Cache::forget('menus');
 
         return redirect(route('product'))->with('success', 'Product Sukses Diupdate !');
     }
@@ -126,7 +126,7 @@ class ProductController extends Controller
         CartMenu::where('menu_id', $id)->delete();
         Menu::destroy($id);
 
-        Cache::forget('menus_user_' . Auth::id());
+        Cache::forget('menus');
 
         return redirect(route('product'))->with('success', 'Product Berhasil Dihapus !');
     }

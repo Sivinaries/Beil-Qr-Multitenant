@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Store;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Cache;
 
 class StoreController extends Controller
 {

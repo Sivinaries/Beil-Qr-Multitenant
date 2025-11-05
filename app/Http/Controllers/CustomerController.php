@@ -21,9 +21,9 @@ class CustomerController extends Controller
 
         $chairStore = Auth::guard('chair')->user()->store;
 
-        $storeKey = 'store_chair_' . Auth::id();
-        $showKey = 'show_chair_' . Auth::id();
-        $menusKey = 'menus_chair_' . Auth::id(); // Cache key for menus
+        $storeKey = 'stores';
+        $showKey = 'showcases';
+        $menusKey = 'menus'; // Cache key for menus
 
         $store = Cache::remember($storeKey, now()->addMinutes(60), function () use ($chairStore) {
             return $chairStore;
@@ -45,7 +45,7 @@ class CustomerController extends Controller
 
         $chairStore = Auth::guard('chair')->user()->store;
 
-        $categoryKey = 'category_chair_' . Auth::id();
+        $categoryKey = 'categories';
 
         $category = Cache::remember($categoryKey, now()->addMinutes(60), function () use ($chairStore) {
             return $chairStore->categories()->with('menus')->get();
@@ -350,7 +350,7 @@ class CustomerController extends Controller
     {
         $chairId = Auth::guard('chair')->user()->id;
 
-        $cacheKey = 'akun_' . $chairId;
+        $cacheKey = 'chairs';
 
         $chair = Cache::remember($cacheKey, now()->addMinutes(60), function () use ($chairId) {
             return Auth::guard('chair')->user();

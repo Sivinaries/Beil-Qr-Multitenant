@@ -27,7 +27,7 @@ class CategoryController extends Controller
             return redirect()->route('login');
         }
 
-        $cacheKey = 'categories_user_' . Auth::id();
+        $cacheKey = 'categories';
 
         $category = Cache::remember($cacheKey, now()->addMinutes(60), function () use ($userStore) {
             return $userStore->categories;
@@ -53,7 +53,7 @@ class CategoryController extends Controller
 
         Category::create($data);
 
-        Cache::forget('categories_user_' . Auth::id());
+        Cache::forget('categories');
 
         return redirect(route('category'))->with('success', 'Category successfully created!');
     }
@@ -79,7 +79,7 @@ class CategoryController extends Controller
 
         Category::where('id', $id)->update($data);
 
-        Cache::forget('categories_user_' . Auth::id());
+        Cache::forget('categories');
 
         return redirect(route('category'))->with('success', 'Category successfully updated!');
     }
@@ -88,7 +88,7 @@ class CategoryController extends Controller
     {
         Category::destroy($id);
 
-        Cache::forget('categories_user_' . Auth::id());
+        Cache::forget('categories');
 
         return redirect(route('category'))->with('success', 'Category successfully deleted!');
     }

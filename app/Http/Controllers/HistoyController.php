@@ -23,7 +23,7 @@ class HistoyController extends Controller
             return redirect()->route('addstore');
         }
 
-        $cacheKey = 'histories_user_' . Auth::id();
+        $cacheKey = 'histories';
 
         $history = Cache::remember($cacheKey, now()->addMinutes(60), function () use ($userStore) {
             return $userStore->histories;
